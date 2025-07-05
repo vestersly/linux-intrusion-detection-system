@@ -1,130 +1,84 @@
-# HIDS-Toolkit: A Modular Bash-based Intrusion Detection System
+# 🛡 Linux Intrusion Detection System (HIDS) – Final Collaborative Edition
 
-![Bash](https://img.shields.io/badge/Language-Bash-blue?style=for-the-badge&logo=gnu-bash)
-![Linux](https://img.shields.io/badge/Platform-Linux-yellow?style=for-the-badge&logo=linux)
-![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
-
-A comprehensive, modular Host-based Intrusion Detection System (HIDS) developed as a team project to monitor Linux systems for unauthorized activity and potential security breaches. This toolkit establishes a secure baseline of the system and uses scheduled, automated checks to detect and report deviations.
+> 📍 Developed by: **Yuri, Sylvester (Core Architect), Patrick, Asiye**  
+> 🏫 Project presented at **BeCode Brussels, July 2025**
 
 ---
 
-### 演示
+## 🔥 Project Summary (English)
 
-*A short GIF demonstrating a clean scan, an attack, the alert, and the cleanup.*
-**[INSERT YOUR DEMO GIF HERE]**
+This project showcases a collaborative, modular **Host-Based Intrusion Detection System (HIDS)** built entirely in **Bash** for Linux environments. Designed to detect system compromise, unauthorized access, and configuration changes in real-time.
 
----
+### 🔐 Key Features
 
-### ✨ Key Features
+- ✅ Real-time file integrity monitoring using `sha256sum` and `diff`
+- ✅ User account auditing of `/etc/passwd` and `/etc/shadow`
+- ✅ Log and process anomaly detection using `grep`, `ss`, and `ps`
+- ✅ Automated email alerts via `cron`
+- ✅ Modular structure for easy extension and testing
+- ✅ Baseline creation (`init`) and intrusion checks (`check`)
 
-*   **File Integrity Monitoring (FIM):** Detects unauthorized modifications, additions, or deletions of critical system files using `sha256sum` checksums.
-*   **User & Group Monitoring:** Audits `/etc/passwd`, `/etc/shadow`, and `/etc/group` to detect illicit user account creation or modification.
-*   **Log Analysis Engine:** Scans system logs (e.g., `/var/log/auth.log`) for suspicious keywords like "Failed password" or "authentication failure".
-*   **Process & Network Auditing:** Identifies processes running from unusual locations (like `/tmp`) and detects unauthorized listening network ports.
-*   **System Configuration Checks:** Monitors critical configuration files, such as the root user's crontab, for unauthorized changes.
-*   **System Health Monitoring:** Tracks CPU load, memory usage, and disk space against configurable thresholds to prevent performance-related outages.
-*   **Automated Scanning & Alerting:** Utilizes `cron` for continuous, automated monitoring and sends detailed email alerts upon threat detection.
+### 🧪 Testing Environment
 
----
+- **Kali Linux (Victim):** HIDS installed and monitored
+- **Ubuntu (Attacker):** Simulated attacker machine
+- ✅ Real-time detection of unauthorized file creation and system changes
 
-### 🏛️ System Architecture
+### 📂 Toolkit Structure
 
-The HIDS-Toolkit is built on a modular architecture to ensure scalability and maintainability. A central controller script, `hids-toolkit.sh`, orchestrates the execution of various monitoring modules, each responsible for a specific security domain.
+- `hids-toolkit.sh` – Main script controller
+- `hids.conf` – Configuration file
+- `/modules/` – Modular scans (file, users, logs, processes, etc.)
+- `/db/` – Fingerprint database (baselines)
+- `/reports/` – Auto-generated scan logs
 
-```
-hids-toolkit/
-├── hids-toolkit.sh         # Main controller script
-├── hids.conf               # Unified configuration for all modules
-├── modules/                # Directory for all monitoring logic
-│   ├── 10_fim.sh
-│   ├── 20_users.sh
-│   ├── 30_logs.sh
-│   ├── 40_processes_network.sh
-│   ├── 50_system_config.sh
-│   └── 60_resource_monitor.sh
-├── db/                       # Stores all baseline state files
-├── reports/                  # Contains timestamped scan reports
-└── README.md
-```
+### 👥 Contributors & Roles
 
----
+- **Yuri** – Team Lead & System Health Monitoring  
+- **Sylvester** – Core Architect (Framework Integration & Testing)  
+- **Patrick** – Log Analysis & User Monitoring  
+- **Asiye** – QA, Automation & Documentation
 
-### 🛠️ Tech Stack
+### 📸 Demo & Source Code
 
-*   **Primary Language:** Bash Scripting
-*   **Core Utilities:** `grep`, `awk`, `sed`, `diff`, `sha256sum`, `ps`, `ss`, `free`, `df`
-*   **Automation:** `cron`
-*   **Environment:** Linux (tested on Kali Linux and Ubuntu)
+🔗 GitHub Repository: [linux-intrusion-detection-system](https://github.com/vestersly/linux-intrusion-detection-system)
 
 ---
 
-### 🚀 Getting Started
+## 🇫🇷 Résumé du Projet (French)
 
-Follow these steps to deploy the HIDS-Toolkit on your own Linux system.
+Ce projet présente un **Système de Détection d'Intrusion Hôte (HIDS)** modulaire, collaboratif et automatisé, codé entièrement en **Bash** pour les environnements Linux. Il détecte efficacement les activités non autorisées et les changements critiques du système.
 
-#### Prerequisites
-*   A Linux-based OS
-*   `sudo` privileges
-*   `mailutils` for email alerts (`sudo apt install mailutils`)
+### 🔐 Fonctionnalités Principales
 
-#### 1. Clone the Repository
-```bash
-git clone https://github.com/YOUR_USERNAME/hids-toolkit.git
-cd hids-toolkit
-```
+- ✅ Surveillance de l’intégrité des fichiers (`sha256sum`, `diff`)
+- ✅ Audit des comptes utilisateurs (`/etc/passwd`, `/etc/shadow`)
+- ✅ Analyse des journaux et processus (`grep`, `ss`, `ps`)
+- ✅ Alertes envoyées automatiquement par e-mail (via `cron`)
+- ✅ Structure modulaire facilement extensible
+- ✅ Création de base (`init`) et vérification (`check`)
 
-#### 2. Configure the Toolkit
-Open `hids.conf` and set your email address for alerts. Adjust any thresholds as needed.
-```ini
-# Change this line
-REPORT_EMAIL="your-email@example.com"
-```
+### 🧪 Environnement de Test
 
-#### 3. Set Permissions
-Make the main controller script executable.
-```bash
-chmod +x hids-toolkit.sh
-```
+- **Kali Linux (Cible)** : Déploiement du HIDS  
+- **Ubuntu (Attaquant)** : Machine d'attaque simulée  
+- ✅ Détection en temps réel des modifications non autorisées
 
----
+### 📂 Structure de l’Outil
 
-### 📖 Usage Guide
+- `hids-toolkit.sh` – Contrôleur principal  
+- `hids.conf` – Fichier de configuration  
+- `/modules/` – Modules de vérification  
+- `/db/` – Base de données d’empreintes  
+- `/reports/` – Rapports d’analyse générés automatiquement  
 
-#### 1. Initialize the Baseline
-Run the `init` command on a known-clean system. This creates the secure baseline that all future scans will compare against.
-```bash
-sudo ./hids-toolkit.sh init
-```
+### 👥 Membres de l’Équipe
 
-#### 2. Perform a Manual Check
-Run a manual security scan at any time.
-```bash
-sudo ./hids-toolkit.sh check
-```
-The output will be displayed on the screen and saved to a new file in the `reports/` directory. If an alert is found, an email will be sent.
-
-#### 3. Automate with Cron
-To set up automated scanning every 5 minutes, edit the root crontab:
-```bash
-sudo crontab -e
-```
-Add the following line, making sure to use the absolute path to your project directory:
-```cron
-*/5 * * * * cd /home/papi-kali/hids-toolkit && ./hids-toolkit.sh check
-```
+- **Yuri** – Chef d’équipe & Surveillance Système  
+- **Sylvester** – Architecte Principal (Intégration & Tests)  
+- **Patrick** – Analyste de Journaux & Comptes  
+- **Asiye** – QA, Automatisation & Documentation
 
 ---
 
-### 🤝 The Team
 
-This project was a collaborative effort, and its success is a testament to our teamwork.
-
-*   **Yuri (Team Lead & System Health Specialist):** Guided the project vision and developed the resource monitoring module.
-*   **Sylvester (HIDS Core Architect):** Designed the modular framework, the controller, and the core security detection modules.
-*   **Patrick (Lead Security Analyst & Tool Developer):** Created advanced standalone tools for deep-dive log and process analysis.
-*   **Asiye (QA & Documentation Lead):** Led the testing efforts, validated functionality, and ensured the project was comprehensively documented.
-
----
-
-### 📄 License
-This project is licensed under the MIT License. See the `LICENSE` file for details.
