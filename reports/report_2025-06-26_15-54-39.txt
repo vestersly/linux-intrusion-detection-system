@@ -1,0 +1,87 @@
+===== HIDS Check Started: Thu 26 Jun 15:54:39 BST 2025 =====
+Report will be saved to: reports/report_2025-06-26_15-54-39.txt
+----------------------------------------
+--- [10] Checking File Integrity ---
+sha256sum: /usr/bin/mailtest: No such file or directory
+sha256sum: /usr/sbin/exim_checkaccess: No such file or directory
+sha256sum: /usr/sbin/syslog2eximlog: No such file or directory
+sha256sum: /usr/sbin/exim_convert4r4: No such file or directory
+sha256sum: /usr/sbin/exipick: No such file or directory
+sha256sum: /usr/sbin/exiqsumm: No such file or directory
+sha256sum: /usr/sbin/exim_msgdate: No such file or directory
+sha256sum: /usr/sbin/exiqgrep: No such file or directory
+sha256sum: /usr/sbin/exim_id_update: No such file or directory
+sha256sum: /usr/sbin/exim_dumpdb: No such file or directory
+sha256sum: /usr/sbin/exim_tidydb: No such file or directory
+sha256sum: /usr/sbin/eximstats: No such file or directory
+sha256sum: /usr/sbin/update-exim4.conf: No such file or directory
+sha256sum: /usr/sbin/exim4: No such file or directory
+sha256sum: /usr/sbin/update-exim4.conf.template: No such file or directory
+sha256sum: /usr/sbin/exim_lock: No such file or directory
+sha256sum: /usr/sbin/exinext: No such file or directory
+sha256sum: /usr/sbin/exiwhat: No such file or directory
+sha256sum: /usr/sbin/exim_dbmbuild: No such file or directory
+sha256sum: /usr/sbin/exigrep: No such file or directory
+sha256sum: /usr/sbin/exim_fixdb: No such file or directory
+sha256sum: /usr/sbin/exicyclog: No such file or directory
+sha256sum: WARNING: 22 listed files could not be read
+sha256sum: WARNING: 8 computed checksums did NOT match
+ALERT: File integrity change detected. Review report for details.
+Detailed Changes:
+> /etc/apparmor.d/local/usr.bin.msmtp
+> /etc/apparmor.d/usr.bin.msmtp
+> /etc/init.d/msmtpd
+< /etc/NetworkManager/system-connections/Wired
+> /etc/NetworkManager/system-connections/Wired connection 1
+< /usr/bin/mailtest
+> /usr/bin/msmtp
+> /usr/bin/msmtpd
+> /usr/bin/secret-tool
+< /usr/sbin/exicyclog
+< /usr/sbin/exigrep
+< /usr/sbin/exim4
+< /usr/sbin/exim_checkaccess
+< /usr/sbin/exim_convert4r4
+< /usr/sbin/exim_dbmbuild
+< /usr/sbin/exim_dumpdb
+< /usr/sbin/exim_fixdb
+< /usr/sbin/exim_id_update
+< /usr/sbin/exim_lock
+< /usr/sbin/exim_msgdate
+< /usr/sbin/eximstats
+< /usr/sbin/exim_tidydb
+< /usr/sbin/exinext
+< /usr/sbin/exipick
+< /usr/sbin/exiqgrep
+< /usr/sbin/exiqsumm
+< /usr/sbin/exiwhat
+< /usr/sbin/syslog2eximlog
+< /usr/sbin/update-exim4.conf
+< /usr/sbin/update-exim4.conf.template
+--- [20] Checking User Accounts ---
+ALERT: /etc/passwd has been modified.
+ALERT: /etc/shadow has been modified.
+ALERT: /etc/group has been modified.
+--- [30] Analyzing System Logs ---
+OK: No suspicious logs found.
+--- [40] Checking Processes & Network ---
+OK: No suspicious processes or unauthorized ports found.
+--- [50] Checking System Config ---
+OK: No critical system config changes found.
+--- [60] Checking System Resources ---
+INFO: Current 1-min CPU Load Average: 0.20
+INFO: Memory Usage: 11% (978 MB used of 8554 MB)
+INFO: Disk Usage on /dev: 0%
+INFO: Disk Usage on /run: 1%
+INFO: Disk Usage on /: 9%
+INFO: Disk Usage on /dev/shm: 1%
+INFO: Disk Usage on /run/lock: 0%
+INFO: Disk Usage on /tmp: 1%
+INFO: Disk Usage on /run/credentials/getty@tty1.service: 0%
+INFO: Disk Usage on /run/user/1000: 1%
+INFO: Disk Usage on /run/credentials/systemd-journald.service: 0%
+OK: System resources are within defined thresholds.
+===== HIDS Check Complete =====
+Alert detected, sending email to awungjia.sylvester@gmail.com...
+mail: cannot send message: Process exited with a non-zero status
+Email alert sent.

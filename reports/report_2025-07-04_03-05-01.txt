@@ -1,0 +1,27 @@
+===== HIDS Check Started: Fri  4 Jul 03:05:01 BST 2025 =====
+Report will be saved to: reports/report_2025-07-04_03-05-01.txt
+----------------------------------------
+--- [10] Checking File Integrity ---
+OK: No file changes.
+--- [20] Checking User Accounts ---
+OK: No user account changes.
+--- [30] Analyzing System Logs ---
+OK: No suspicious logs found.
+--- [40] Checking Processes & Network ---
+OK: No suspicious processes or unauthorized ports found.
+--- [50] Checking System Config ---
+OK: No critical system config changes found.
+--- [60] Checking System Resources ---
+INFO: Current 1-min CPU Load Average: 0.00
+INFO: Memory Usage: 9% (834 MB used of 8554 MB)
+INFO: Disk Usage on /dev: 0%
+INFO: Disk Usage on /run: 1%
+INFO: Disk Usage on /: 9%
+INFO: Disk Usage on /dev/shm: 1%
+INFO: Disk Usage on /run/lock: 0%
+INFO: Disk Usage on /run/credentials/systemd-journald.service: 0%
+INFO: Disk Usage on /tmp: 1%
+INFO: Disk Usage on /run/credentials/getty@tty1.service: 0%
+INFO: Disk Usage on /run/user/1000: 1%
+OK: System resources are within defined thresholds.
+===== HIDS Check Complete =====
