@@ -1,72 +1,44 @@
-# Linux Intrusion Detection System (HIDS)
-
 ## Overview
-This project implements a modular Host-Based Intrusion Detection System (HIDS) written in Bash for Linux environments.
+This project implements a **modular, high-fidelity Host-Based Intrusion Detection System (HIDS)** designed for **continuous, automated security monitoring** on Linux systems.
 
-It was developed as a collaborative security engineering project at BeCode Brussels and focuses on real-time detection of unauthorized system changes, suspicious user activity, and log anomalies.
-
----
-
-## Features
-
-- File integrity monitoring using SHA-256 checksums
-- Detection of unauthorized file modification and creation
-- User and account auditing via /etc/passwd and /etc/shadow
-- Log anomaly detection using grep
-- Network and process analysis using ss and ps
-- Automated alert scheduling with cron jobs
-- Modular design for easy extension and testing
-- Baseline generation and continuous monitoring mode
+The system focuses on detecting **unauthorized system state changes and persistence mechanisms** in environments where availability and integrity are critical.  
+It was developed as a **collaborative security engineering project** within a controlled professional training context, with all organizational identifiers intentionally omitted in accordance with confidentiality and responsible disclosure practices.
 
 ---
 
-## Project Structure
+## ⚡ Professional Security Modules
 
-hids-toolkit.sh # Main controller script
-hids.conf # Configuration file
-/modules/ # Detection modules
-/db/ # Baseline fingerprint hashes
-/reports/ # Scan logs and alerts
+### Cryptographic Integrity Monitoring (FIM)
+- Uses SHA-256 fingerprinting to detect unauthorized creation or modification of protected system files
+- Enables state-based detection rather than reliance on log events alone
 
+### Persistence Detection
+- Monitors privileged scheduled tasks (e.g. root crontab) to detect unauthorized persistence mechanisms
+- Targets low-noise techniques commonly used in real-world intrusions
 
----
-
-## Testing Environment
-
-- Kali Linux (monitored host)
-- Ubuntu Linux (attack simulation)
-
-The toolkit was tested with simulated attacks to verify:
-- Detection of unauthorized file modifications
-- Identification of suspicious account changes
-- Logging and reporting of security anomalies
+### Resource-Aware Monitoring
+- Includes system health checks to validate that monitoring activities do not impact availability
+- Validated during testing to operate with **low CPU and memory utilization**
 
 ---
 
-## Team & Contributions
+## 📩 Automated Alerting & Continuous Operations
+The HIDS is engineered for **autonomous operation** to reduce Mean Time to Detect (MTTD) and minimize manual intervention.
 
-This was a collaborative team project:
+### Scheduled Auditing
+- Monitoring cycles are executed automatically via cron
+- Each cycle compares current system state against a trusted baseline
 
-- Yuri — Team Lead & system monitoring
-- **Sylvester — Core Architect (System integration & testing)**
-- Patrick — Log analysis & user auditing
-- Asiye — QA, automation & documentation
+### Incident Notification
+- High-severity detections trigger structured reports
+- **Automated email notifications** are sent to the security operator via SMTP relay
 
----
+### Operational Validation
+During controlled testing scenarios, the system successfully:
+- Detected unauthorized configuration and file integrity changes
+- Identified persistence-related modifications
+- Delivered immediate alert notifications to the security operator
 
-## Learning Objectives
-
-This project was developed to:
-- Practice defensive security techniques
-- Apply Linux security fundamentals
-- Understand host level monitoring concepts
-- Build modular detection logic
-- Automate reporting and alerting mechanisms
-
----
-
-## Author
-Sylvester Awungjia  
-Cybersecurity graduate | AWS Certified Solutions Architect
+All validation artifacts are documented in a sanitized form to preserve confidentiality.
 
 
